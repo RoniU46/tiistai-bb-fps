@@ -257,7 +257,6 @@ GameObject:
   - component: {fileID: 963194228}
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
-  - component: {fileID: 963194230}
   - component: {fileID: 963194229}
   m_Layer: 0
   m_Name: Main Camera
@@ -346,21 +345,6 @@ MonoBehaviour:
   mouseSensitivity: 50
   minYAngle: -70
   maxYAngle: 90
---- !u!114 &963194230
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 963194225}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1d6f2010ea999046886ff5a8124618c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mouseSensitivity: 50
-  minYAngle: 70
-  maxYAngle: 90
 --- !u!1 &1098407743
 GameObject:
   m_ObjectHideFlags: 0
@@ -425,7 +409,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 455b8594ad82cb04698f43779aabf7d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  groundCheck: {fileID: 0}
+  groundCheck: {fileID: 641911912}
+  ground:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!1 &1642240455
 GameObject:
   m_ObjectHideFlags: 0
@@ -535,7 +522,7 @@ GameObject:
   - component: {fileID: 2030460475}
   - component: {fileID: 2030460474}
   - component: {fileID: 2030460473}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
