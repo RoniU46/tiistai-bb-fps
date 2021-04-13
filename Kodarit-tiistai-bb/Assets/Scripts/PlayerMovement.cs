@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     private float moveSpeed = 8f, runSpeed = 1.8f;
     private float gravity = -9.81f;
     private float jumpHeight = 5f;
+    private float pushForce = 5f;
 
     public Transform groundCheck;
     private float groundDistance = 0.4f;
@@ -17,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask ground;
 
     private Vector3 velocity;
+    private Vector3 move;
 
     // Start is called before the first frame update
     void Start()
@@ -33,7 +35,7 @@ public class PlayerMovement : MonoBehaviour
         float xAxis = Input.GetAxis("Horizontal");
         float zAxis = Input.GetAxis("Vertical");
 
-        Vector3 move = transform.right * xAxis + transform.forward * zAxis;
+        move = transform.right * xAxis + transform.forward * zAxis;
 
  
 
@@ -55,6 +57,23 @@ public class PlayerMovement : MonoBehaviour
         }
 
 
+    }
+
+    private void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        if (hit.collider.gameObject.layer == 6)
+        {
+            return;
+        }
+
+        Rigidbody rb = hit.collider.gameObject.GetComponent<Rigidbody>();
+
+        if (rb == null)
+        {
+            return;
+        }
+
+        rb.AddForce(move * pushForce);
     }
 
 }
