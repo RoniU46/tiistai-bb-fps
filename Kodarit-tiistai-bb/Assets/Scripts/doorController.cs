@@ -29,7 +29,7 @@ public class doorController : MonoBehaviour
                 case DoorState.Close:
                     if (transform.position.y != startPoint.y)
                     {
-                        transform.postion = Vector3.Lerp(transform.position, startPoint, moveSpeed * Time.deltaTime);
+                        transform.position = Vector3.Lerp(transform.position, startPoint, moveSpeed * Time.deltaTime);
                     }
                     else
                     {
@@ -39,13 +39,13 @@ public class doorController : MonoBehaviour
                     break;
 
                 case DoorState.Open:
-                    if (transform.position.y != EndPoint.position)
+                    if (transform.position.y != EndPoint.position.y)
                     {
                         transform.position = Vector3.Lerp(transform.position, EndPoint.position, moveSpeed * Time.deltaTime);
                     }
                     else
                     {
-                        isMoving false;
+                        isMoving = false;
                         state = DoorState.Open;
                     }
                     break;
