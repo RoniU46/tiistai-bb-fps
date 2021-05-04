@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class doorTrigger : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public enum TriggerState { Opens, Closes };
 
-    // Update is called once per frame
-    void Update()
+    public TriggerState state = TriggerState.Opens;
+    public doorController door;
+
+    private void OnTriggerEnter(Collider other)
     {
-        
+        if (state == TriggerState.Opens)
+        {
+            door.OpenDoor();
+        }
+
+        if (state == TriggerState.Closes)
+        {
+            door.CloseDoor();
+        }
     }
 }

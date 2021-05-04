@@ -20,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 velocity;
     private Vector3 move;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,10 +38,11 @@ public class PlayerMovement : MonoBehaviour
 
         move = transform.right * xAxis + transform.forward * zAxis;
 
- 
 
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
+
+      
 
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
